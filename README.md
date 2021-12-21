@@ -1,4 +1,4 @@
-###MEET
+### MEET
 
 ##Objective
 
@@ -6,9 +6,9 @@ To build a serverless, progressive web application (PWA) with React using a test
 development (TDD) technique. The application uses the Google Calendar API to fetch
 upcoming events.
 
-##Features & Requirements
+## Features & Requirements
 
-#Key Features
+# Key Features
 
 1. Filter events by city.
 2. Show/hide event details.
@@ -30,7 +30,7 @@ can open the app faster.
 6. As a user, I would like to be able to see a chart showing the upcoming events in each
 city so that I know what events are organized in which city.
 
-#Technical Requirements
+# Technical Requirements
 
 
 ● The app must be a React application.
