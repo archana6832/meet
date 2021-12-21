@@ -1,3 +1,5 @@
+###MEET
+
 ##Objective
 
 To build a serverless, progressive web application (PWA) with React using a test-driven
@@ -29,6 +31,7 @@ can open the app faster.
 city so that I know what events are organized in which city.
 
 #Technical Requirements
+
 
 ● The app must be a React application.
 ● The app must be built using the TDD technique.
