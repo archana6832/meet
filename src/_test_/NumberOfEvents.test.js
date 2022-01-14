@@ -2,20 +2,17 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import NumberOfEvents from '../NumberOfEvents';
 
+describe('<NumberOfEvents > component', () => {
 
-describe('<NumberOfEvents /> component', () => {
-    let NumberOfEventsWrapper;
-    beforeAll(() => {
+    test('textbox is rendered correctly', () => {
+        const NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+        expect(NumberOfEventsWrapper.find('.NumberOfEvents')).toHaveLength(1);
+    })
 
-        NumberOfEventsWrapper = shallow(<NumberOfEvents />);
-    });
-    //render text input
-    test('render text input', () => {
-        expect(NumberOfEventsWrapper.find('.number-of-events')).toHaveLength(1);
-    });
-    //render text input correctly
-    test('render text input correctly', () => {
-        const numberOfEvents = NumberOfEventsWrapper.prop('numberOfEvents');
-        expect(NumberOfEventsWrapper.find('.number-of-events').prop('value')).toBe(numberOfEvents);
-    });
-});
+    test('Textbox changes state of numberofevents', () => {
+        const NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+        const newNumber = { target: { value: '16' } };
+        NumberOfEventsWrapper.find('.newNumber').simulate('change', newNumber);
+        expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(16);
+    })
+})

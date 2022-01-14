@@ -9,27 +9,31 @@ describe('<Event /> component', () => {
     beforeAll(() => {
         EventWrapper = shallow(<Event event={mockData[1]} />);
     });
-    //Summary is displayed
+
     test("Summary is displayed", () => {
-        expect(EventWrapper.find(".summary")).toHaveLength(1);
+        expect(EventWrapper.find(".summary").text()).toBe('React is Fun');
     });
-    //start-date and timezone
-    test('renders start-date and timezone', () => {
-        expect(EventWrapper.find('.start-date')).toHaveLength(1);
-    });
-    //Location is displayed
+
     test("Location is displayed", () => {
-        expect(EventWrapper.find(".location")).toHaveLength(1);
+        expect(EventWrapper.find(".location").text()).toBe('Berlin, Germany');
     });
-    //Show details button
+
+    test("Start date and timezone are displayed", () => {
+        expect(EventWrapper.find(".start-date").text()).toBe('2020-05-20T14:00:00+02:00');
+    });
+
+    {/*} test("End date and timezone are displayed", () => {
+        expect(EventWrapper.find(".end-date").text()).toBe('2020-05-20T15:00:00+02:00');
+    });*/}
+
     test("Show details button is rendered", () => {
         expect(EventWrapper.find(".show-details")).toHaveLength(1);
     });
-    //event element collapsed by default
+
     test("event element is collapsed by default", () => {
         expect(EventWrapper.state("collapsed")).toBe(true);
     });
-    //clicking on show details button shows extra details
+
     test("clicking on show details button shows extra details", () => {
         EventWrapper.setState({
             collapsed: true,
@@ -37,7 +41,7 @@ describe('<Event /> component', () => {
         EventWrapper.find(".show-details").simulate("click");
         expect(EventWrapper.state("collapsed")).toBe(false);
     });
-    //click to hide details button hides extra details
+
     test("clicking on hide details button hides extra details", () => {
         EventWrapper.setState({
             collapsed: false,
