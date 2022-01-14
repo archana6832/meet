@@ -2,14 +2,15 @@ import React, { Component } from "react";
 
 class NumberOfEvents extends Component {
     state = {
-        numberOfEvents: 16,
+        numberOfEvents: 32,
     }
 
     handleInputChanged = (event) => {
         const value = event.target.value;
-        if (value < 1 || value > 16) {
+        if (value < 1 || value > 32) {
             this.setState({
                 numberOfEvents: '',
+                eventCount: false
             })
         }
 
@@ -24,6 +25,7 @@ class NumberOfEvents extends Component {
                     className="newNumber"
                     value={this.state.numberOfEvents}
                     onChange={(e) => this.handleInputChanged(e)}
+                    onFocus={() => { this.setState({ eventCount: true }) }}
                 />
             </div>
         )

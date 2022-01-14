@@ -11,7 +11,9 @@ class App extends Component {
 
   state = {
     events: [], //to pass events state to EventList component
-    locations: [] // to pass locations state to citysearch component
+    locations: [], // to pass locations state to citysearch component
+    eventCount: undefined
+
   }
 
   //componentDidMount
@@ -30,16 +32,25 @@ class App extends Component {
   }
 
 
-  //to change the state of events in the App component
-  updateEvents = (location) => {
+
+
+  //
+  updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
       const locationEvents = (location === 'all') ?
-        events : events.filter((event) => event.location === location);
-      this.setState({
-        events: locationEvents
-      });
+        events :
+        events.filter((event) => event.location === location);
+      if (this.mounted) {
+        this.setState({
+          events: locationEvents.slice(0, this.state.eventCount),
+          currentLocation: location,
+        });
+      }
     });
   }
+  //
+
+
   render() {
     return (
       <div className="App">
