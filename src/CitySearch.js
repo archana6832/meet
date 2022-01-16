@@ -28,7 +28,7 @@ class CitySearch extends Component {
         return (
 
             <div className="CitySearch">
-
+                <p><b>Choose your nearest city</b></p>
                 <input
                     type="text"
                     className="city"

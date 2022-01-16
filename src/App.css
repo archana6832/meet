@@ -27,7 +27,12 @@ p {
 .showSuggestions {
   display: block;
 }
-
+.meet {
+  text-align: center;
+  padding: 2% 5%;
+  font-size: 40px;
+  font-weight: bold;
+}
 input[type="text"],
 input[type="number"] {
   padding: 8px 6px 8px 10px;
