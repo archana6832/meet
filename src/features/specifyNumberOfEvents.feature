@@ -1,11 +1,11 @@
-Feature: Specify the number of events.
+Feature: Specify Number of Events
 
-Scenario: When user hasn’t specified a number, 32 is the default number
-Given the user is viewing the events on the main page
-When  the user hasn't selected the number of events to be displayed
-Then  the default number of events wil be displayed
+    Scenario: The default number of events is 32
+    Given the user launches the app
+    When the user has not specified a number of events
+    Then the default number of events is 32
 
-Scenario: User can change the number of events they want to see
-Given the user is viewing the events on the main page
-When  the user has selected the number of events to be visible
-Then  the number of events selected will be the amount displayed
+    Scenario: The user can change the number of events
+    Given the user launches the app
+    When the user specifies the number of events they want to see
+    Then the app changes that number to the specified number by the user

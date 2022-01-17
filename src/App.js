@@ -12,9 +12,35 @@ class App extends Component {
   state = {
     events: [], //to pass events state to EventList component
     locations: [], // to pass locations state to citysearch component
-    eventCount: undefined
+    numberOfEvents: 32,
+    currentLocation: 'all',
+    errorText: ''
+
+  }
 
 
+
+  //UPDATE Events
+  updateEvents = (location) => {
+    getEvents().then((events) => {
+      const locationEvents = (location === 'all') ?
+        events :
+        events.filter((event) => event.location === location);
+      if (this.mounted) {
+        this.setState({
+          events: locationEvents.slice(0, this.state.numberOfEvents),
+          currentLocation: location,
+        });
+      }
+    });
+  }
+  //UPDATE numberofevents
+  updateNumberOfEvents = async (e) => {
+    const { currentLocation } = this.state;
+    this.setState({
+      numberOfEvents: e
+    });
+    this.updateEvents(currentLocation, e);
   }
 
   //componentDidMount
@@ -31,28 +57,12 @@ class App extends Component {
   componentWillUnmount() {
     this.mounted = false;
   }
-
-  //
-  updateEvents = (location, eventCount) => {
-    getEvents().then((events) => {
-      const locationEvents = (location === 'all') ?
-        events :
-        events.filter((event) => event.location === location);
-      if (this.mounted) {
-        this.setState({
-          events: locationEvents.slice(0, this.state.eventCount),
-          currentLocation: location,
-        });
-      }
-    });
-  }
-
   render() {
     return (
       <div className="App">
         <p className="meet">MEET APP</p>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-        <NumberOfEvents />
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} />
         <EventList events={this.state.events} />
 
       </div>

@@ -11,13 +11,12 @@ describe('<NumberOfEvents > component', () => {
 
     test('textbox is rendered correctly', () => {
 
-        expect(NumberOfEventsWrapper.find('.NumberOfEvents')).toHaveLength(1);
+        expect(NumberOfEventsWrapper.find('.number-of-events')).toHaveLength(1);
     })
 
     test('Textbox changes state of numberofevents', () => {
 
-        const newNumber = { target: { value: '32' } };
-        NumberOfEventsWrapper.find('.newNumber').simulate('change', newNumber);
-        expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(32);
+        const numberOfEvents = NumberOfEventsWrapper.prop('numberOfEvents');
+        expect(NumberOfEventsWrapper.find('.number-of-events').prop('value')).toBe(numberOfEvents);
     })
 })
