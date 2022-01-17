@@ -14,6 +14,7 @@ class App extends Component {
     locations: [], // to pass locations state to citysearch component
     eventCount: undefined
 
+
   }
 
   //componentDidMount
@@ -31,9 +32,6 @@ class App extends Component {
     this.mounted = false;
   }
 
-
-
-
   //
   updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
@@ -48,8 +46,6 @@ class App extends Component {
       }
     });
   }
-  //
-
 
   render() {
     return (
