@@ -12,6 +12,13 @@ export const extractLocations = (events) => {
 //getEvents Function
 export const getEvents = async () => {
   NProgress.start();
+  //local storage for offline
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return data ? JSON.parse(data).events : [];;//check the line
+  }
+
 
   if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
@@ -20,12 +27,6 @@ export const getEvents = async () => {
 
 
   const token = await getAccessToken();
-  if (!navigator.onLine) {
-    const data = localStorage.getItem("lastEvents");
-    NProgress.done();
-    return data ? JSON.parse(events).events : [];;
-  }
-
   if (token) {
     removeQuery();
     const url = ' https://g9ivyj6g34.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/' + token;
