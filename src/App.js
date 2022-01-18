@@ -61,8 +61,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p className="meet">MEET APP</p>
         {!navigator.onLine ? (<WarningAlert text='You are offline!' />) : (<WarningAlert text='' />)}
+        <p className="meet">MEET APP</p>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} />
         <EventList events={this.state.events} />
