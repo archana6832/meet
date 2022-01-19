@@ -63,7 +63,7 @@ export const getAccessToken = async () => {
 };
 
 // function checkToken, to check the token’s validity
-const checkToken = async (accessToken) => {
+export const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
