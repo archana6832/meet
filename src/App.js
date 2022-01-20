@@ -50,14 +50,14 @@ class App extends Component {
   }
 
   //componentDidMount
-  /* componentDidMount() {
-     this.mounted = true;
-     getEvents().then((events) => {
-       if (this.mounted) {
-         this.setState({ events, locations: extractLocations(events) });
-       }
-     });
-   }*/
+  /*componentDidMount() {
+    this.mounted = true;
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+    });
+  }*/
 
   //componentDidMount for WELCOMESCREEN
   async componentDidMount() {
@@ -108,7 +108,7 @@ class App extends Component {
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} />
 
-        <h4>Events in each city</h4>
+
 
         <div className="data-vis-wrapper">
           <EventGenre events={events} />
@@ -125,7 +125,7 @@ class App extends Component {
               <XAxis type="category" dataKey="city" name="city" />
               <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Scatter data={this.getData()} fill="#8884d8" />
+              <Scatter data={this.getData()} fill="#6c66d7" />
 
 
             </ScatterChart>
