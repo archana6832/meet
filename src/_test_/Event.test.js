@@ -18,13 +18,13 @@ describe('<Event /> component', () => {
         expect(EventWrapper.find(".location").text()).toBe('Berlin, Germany');
     });
 
-    test("Start date and timezone are displayed", () => {
+    /*test("Start date and timezone are displayed", () => {
         expect(EventWrapper.find(".start-date").text()).toBe('2020-05-20T14:00:00+02:00');
-    });
+    });*/
 
-    {/*} test("End date and timezone are displayed", () => {
+    /*} test("End date and timezone are displayed", () => {
         expect(EventWrapper.find(".end-date").text()).toBe('2020-05-20T15:00:00+02:00');
-    });*/}
+    });*/
 
     test("Show details button is rendered", () => {
         expect(EventWrapper.find(".show-details")).toHaveLength(1);
