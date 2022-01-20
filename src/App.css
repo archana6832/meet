@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 body {
-  background-color: #bb88aa;
+  background-color: #eadff6;
 }
 .App {
   text-align: center;
@@ -89,11 +89,48 @@ input[type="number"] {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid #c6bed6;
+  /*border: 1px solid #ccc;*/
+  border-radius: 5px;
   position: relative;
 }
-
+.event:hover {
+  background-color:rgb(238, 193, 241);
+  cursor: pointer;
+}
+/*Details button*/
+.show-details {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  padding: 5px 5px ;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  /*font-weight: bold;*/
+  
+}
+.show-details:hover {
+  background-color:rgb(238, 141, 245);
+  cursor: pointer;
+}
+.hide-details {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  padding: 5px 5px ;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  /*font-weight: bold;*/
+  
+}
+.hide-details:hover {
+  background-color:rgb(238, 141, 245);
+  cursor: pointer;
+}
 .details-btn {
   position: absolute;
   right: 5px;
@@ -140,6 +177,7 @@ input[type="number"] {
 .Alert {
   position: fixed;
   top: 20px;
+  height:2rem;
 }
 
 .data-vis-wrapper {
